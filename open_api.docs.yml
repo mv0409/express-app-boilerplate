@@ -1,0 +1,48 @@
+openapi: 3.0.0
+info:
+  title: DEMO
+  description: >-
+    # Introduction
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+components:
+  responses:
+    BadRequest:
+      description: Missing or wrong parameters.
+    Unauthorized:
+      description: Not authorized, token or role is invalid.
+    Forbidden:
+      description: You are not allowed to use the route.
+    NotFound:
+      description: The specified resource was not found.
+    Conflict:
+      description: Resource already exists.
+    InternalServer:
+      description: Internal server error.
+tags:
+  - name: DEMO
+paths:
+  /demo:
+    get:
+      tags:
+        - DEMO
+      summary: Demo endpoint example
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema: 
+                type: string
+                example: 'HelloWorld!'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+security:
+  - bearerAuth: []

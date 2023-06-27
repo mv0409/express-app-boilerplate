@@ -1,0 +1,5 @@
+{
+  "*.ts": ["prettier --write \"**/*.ts\"", "eslint . --ext .ts,"],
+  "*.json": ["prettier --write \"*.json\""],
+  "*.rc": ["prettier --write \"**/*rc\""]
+}
