@@ -15,8 +15,9 @@ export const callback = (routerHandler: IRouteHandler) => {
     } catch (error) {
       if (error instanceof ErrorHandler) {
         res.status(error.code).send(error.message);
+      }else {
+        res.status(500).send("Unexpected error");
       }
-      res.status(500).send("Unexpected error");
     }
   };
 };
