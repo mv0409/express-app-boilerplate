@@ -23,13 +23,13 @@ Router handler callback is a callback function that is passed as an argument to 
 For router method arguments which are ```Async Function``` a utility function (```addCallbackToRouterArgs```) is provided that allows you to pass such arguments without invoking callback routine in the method call.
 For example, typically router method call would look like this:
 
-```demoRouter.get("/", callback(demoValidator), callback(demoController));```
+```demoRouter.get("/", callback(demoMiddleware), callback(demoController));```
 
 By creating a router using provided utility function, you can invoke router methods without callbacks, like shown in the example below, providing us with better modularity and reusability of the code:
 
 ```
 const  demoRouter  =  addCallbackToRouterArgs(Router());
-demoRouter.get("/", demoValidator, demoController);
+demoRouter.get("/", demoMiddleware, demoController);
 addCallbackToRouterArgs(demoRouter);
 ```
 

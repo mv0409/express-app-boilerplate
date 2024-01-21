@@ -1,11 +1,13 @@
 import { Router } from "express";
 import { demoController } from "./demo.controller";
-import { demoValidator } from "./demo.validator";
+import { demoMiddleware } from "./demo.middleware";
 import { addCallbackToRouterArgs } from "../../routes/router-args";
+import { validateDto } from "../../common/middlewares/validation";
+import { DemoDto } from "./demo.dto";
 
 const demoRouter = Router();
 
-demoRouter.get("/demo", demoValidator, demoController);
+demoRouter.get("/demo", validateDto(DemoDto), demoMiddleware, demoController);
 
 addCallbackToRouterArgs(demoRouter);
 
