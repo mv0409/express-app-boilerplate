@@ -6,9 +6,12 @@ It's a pattern that emphasizes the separation and the independence of the differ
 Layers are linked from inner to outer :
 ```mermaid
 graph LR
-A(Controller)
-A --> B(Service)
-B --> D(Entity)
+A(DTO Validation)
+A --> B(Middleware)
+B --> C(Controller)
+C --> D(Service)
+C --> E(Entity)
+
 ```
 
 ## Middlewares
