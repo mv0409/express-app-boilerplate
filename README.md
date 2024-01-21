@@ -10,7 +10,7 @@ A(DTO Validation)
 A --> B(Middleware)
 B --> C(Controller)
 C --> D(Service)
-C --> E(Entity)
+D --> E(Entity)
 
 ```
 
